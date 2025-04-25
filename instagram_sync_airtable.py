@@ -3,17 +3,16 @@ import time
 from datetime import datetime
 import os
 
-# Airtable + RocketAPI tokens (secure via env in production)
-AIRTABLE_TOKEN = "patC7ktOlZziLtTGG.1a7520e86ead711138655ace4ea9783c15257424e9c7d21f1874bb679d0ea516"
+# Load secrets from environment variables (set via GitHub Actions)
+AIRTABLE_TOKEN = os.getenv("AIRTABLE_TOKEN")
+ROCKETAPI_TOKEN = "Token " + os.getenv("ROCKETAPI_TOKEN")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+
 BASE_ID = "appTxTTXPTBFwjelH"
 TABLE_NAME = "Accounts"
 STATS_TABLE = "Statistics"
-ROCKETAPI_TOKEN = "Token YOUR_ROCKETAPI_TOKEN"
 MAX_RETRIES = 3
-
-# Telegram
-TELEGRAM_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"
-TELEGRAM_CHAT_ID = "YOUR_CHAT_ID"
 
 headers_airtable = {
     "Authorization": f"Bearer {AIRTABLE_TOKEN}",
